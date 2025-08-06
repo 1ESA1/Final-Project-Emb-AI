@@ -28,7 +28,7 @@ def emotion_detector(text_to_analyse):
 
     # Extracting sentiment : anger, disgust, fear, joy, sadness, and scores
     if response.status_code == 200:
-        emotions = formatted_response["emotionPrediction"][0]["emotion"]
+        emotions = formatted_response["emotionPredictions"][0]["emotion"]
 
         # Compute the dominant emotion
         dom_emotion = max(emotions, key=emotions.get)
@@ -50,4 +50,5 @@ def emotion_detector(text_to_analyse):
     return emotions
    
     
+
 	
