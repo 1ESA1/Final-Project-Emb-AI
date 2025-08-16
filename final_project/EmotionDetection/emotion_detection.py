@@ -12,13 +12,16 @@ Input json: { "raw_document": { "text": text_to_analyse } }
 def emotion_detector(text_to_analyse):
 
     # URL interate in task for generete request
-    url = 'https://sn-watson-emotion.labs.skills.network/v1/watson.runtime.nlp.v1/NlpService/EmotionPredict' 
+    url = (
+        'https://sn-watson-emotion.labs.skills.network/v1/'
+        'watson.runtime.nlp.v1/NlpService/EmotionPredict'
+    )
     
     # Set the headers required for the API request
     headers = {"grpc-metadata-mm-model-id": "emotion_aggregated-workflow_lang_en_stock"}
     
     # Create a dict with text to analized
-    text_to_analyse = { "raw_document": { "text": text_to_analyse } }
+    text_to_analyse = {"raw_document": {"text": text_to_analyse}}
 
     # Response text analized from post request
     response = requests.post(url, json = text_to_analyse, headers = headers)
@@ -50,6 +53,3 @@ def emotion_detector(text_to_analyse):
     # Returning a dictionary containing sentiment analysis results
     return emotions
    
-    
-
-	

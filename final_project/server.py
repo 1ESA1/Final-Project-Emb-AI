@@ -1,12 +1,11 @@
 # Import Flask for creating the server
-from flask import Flask,render_template, request, jsonify
+from flask import Flask,render_template, request
 from EmotionDetection.emotion_detection import emotion_detector
-
-"""
+'''
 This file sets up a Flask server to handle requests for emotion detection.
 It imports the necessary libraries and initializes the Flask app.
 It also defines a route for the root URL that renders the index.html template.
-"""
+'''
 # Initialize Flask app
 app = Flask("EmotionDetectorServer")
 
@@ -52,4 +51,6 @@ if __name__ == "__main__":
     """
     Start the Flask server if this script is run directly.
     """
-    app.run(host='0.0.0.0', port=5000, debug=True) # Note: The debug mode is enabled for development purposes.
+    # Note: The debug mode is enabled for development purposes.
+    app.run(host='0.0.0.0', port=5000, debug=True) 
+    
