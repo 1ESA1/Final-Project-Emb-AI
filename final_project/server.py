@@ -28,19 +28,15 @@ def emotion_analyzer():
     """
     # Get the text from the request
     text_to_analyze = request.args.get('textToAnalyze')
-
-    # Control text response 
-    if text_to_analyze is None or text_to_analyze.strip() == "":
-        return jsonify({"Error": "No text provided"}), 400
-    
+ 
     # Call the emotion detector function
     result = emotion_detector(text_to_analyze)
 
-    # Check if the result ia None or dominated emotion is None
-    if result['dominant_emotion'] is None:
-        return jsonify({"Error": "Invalid text! No emotion detected"}), 422  
-    
-    # Return sucess response with the detected emotion
+    # Check if the result is None or dominant emotion is None
+    if result is None or result['dominant_emotion'] is None:
+        return "Invalid text! No emotion detected"
+
+    # Return success response with the detected emotion
     return (
         f"For the given statement, the system detected: "
         f"anger: {result['anger']}, "

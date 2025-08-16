@@ -38,13 +38,14 @@ def emotion_detector(text_to_analyse):
 
     # Error not status code 200   
     elif response.status_code != 200:
-        emotion = {"anger": None,
-                   "disgust": None,
-                   "fear": None,
-                   "joy": None,
-                   "sadness": None,
-                   "dominant_emotion": None
-                   }
+        emotions = {
+            "anger": None,
+            "disgust": None,
+            "fear": None,
+            "joy": None,
+            "sadness": None,
+            "dominant_emotion": None
+        }
         
     # Returning a dictionary containing sentiment analysis results
     return emotions
